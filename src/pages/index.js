@@ -5,11 +5,7 @@ import { HomePage } from "../container/HomePage"
 
 export default function Index({ data }) {
   const { edges } = data.allMarkdownRemark
-  return (
-    <BasePage>
-      <HomePage data={edges} />
-    </BasePage>
-  )
+  return <HomePage data={edges} />
 }
 
 export const query = graphql`

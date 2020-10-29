@@ -10,6 +10,7 @@ function TitleAndDescription({ data }) {
     <Wrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
+      <Divider/>
     </Wrapper>
   )
 }
@@ -17,15 +18,34 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   /* font-family: "Arial"; */
 `
-const Title = styled.h2`
+const Title = styled.p`
   margin-bottom: 0;
+  margin-top: 2rem;
+  font-size: 5rem;
+  font-family: 'Fira Sans';
+  font-weight: 900;
+  /* font-style: italic; */
+  opacity: 0.8;
 `
 const Description = styled.p`
   margin-top: 0;
-  opacity: 0.5;
+  margin-bottom: 7px;
+  opacity: 0.6;
+  font-family: "Libre Baskerville";
+  font-style: italic;
+  font-size: 1.1rem;
 `
+const Divider = styled.hr`
+  border-top: 1px solid black;
+  width: 100%;
+  margin-top: 0px;
+  opacity: 0.2;
+  margin-bottom: 3rem;
+`
+
 
 export function Header() {
   return (

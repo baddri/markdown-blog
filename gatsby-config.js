@@ -7,8 +7,8 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "My blog",
-    description: "this is description",
+    title: "hack.",
+    description: "lets talk about solution",
   },
   plugins: [
     `gatsby-transformer-remark`,
@@ -23,7 +23,18 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Nunito", "Droid Serif"],
+          families: [
+            "Nunito",
+            "Open Sans",
+            "PT Mono",
+            "PT Sans",
+            "Libre Baskerville",
+            "Montserrat",
+          ],
+        },
+        costum: {
+          families: ["Fira Sans"],
+          urls: ["/fonts/fonts.css"],
         },
       },
     },
