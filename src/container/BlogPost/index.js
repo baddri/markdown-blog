@@ -7,7 +7,8 @@ import { Content } from "./Content"
 
 export default function Template({ data, pageContext }) {
   const { markdownRemark } = data
-  const { title, date } = markdownRemark.frontmatter
+  const { title, date, tags } = markdownRemark.frontmatter
+  console.log(tags)
   const { html } = markdownRemark
   const { next, prev } = pageContext
   return (
@@ -16,11 +17,16 @@ export default function Template({ data, pageContext }) {
         <Link to={""}>{title}</Link>
       </PostTitle>
       <Date>{dateFormat(date)}</Date>
-      <Content data={html}></Content>
-      <div style={{ marginBottom: "1rem" }}>
-        {prev && <Link to={prev.frontmatter.path}>prev</Link>}
-      </div>
-      <div>{next && <Link to={next.frontmatter.path}>next</Link>}</div>
+      <Content data={html} />
+      <Tags>
+        <div>Tags: {tags && tags.map(tag => <Tag>{tag}</Tag>)}</div>
+      </Tags>
+      <Pagination>
+        <Page style={{ marginBottom: "1rem" }}>
+          {prev && <Link to={prev.frontmatter.path}>Prev Post</Link>}
+        </Page>{" "}
+        <Page>{next && <Link to={next.frontmatter.path}>Next Post</Link>}</Page>
+      </Pagination>
     </BasePage>
   )
 }
@@ -44,6 +50,41 @@ const Date = styled.p`
   opacity: 0.5;
   font-size: 0.9rem;
 `
+const Tags = styled.div`
+  /* float: right; */
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  align-self: flex-start;
+  flex-direction: column;
+  font-style: italic;
+`
+const Tag = styled.span`
+  margin: 0 5px;
+  font-weight: 600;
+  ::before {
+    content: "#";
+  }
+`
+const Pagination = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+  align-content: space-between;
+`
+const Page = styled.div`
+  margin: 0 10px;
+  margin-bottom: 7px;
+  a {
+    text-decoration: none;
+    /* font-style: italic; */
+    font-weight: 600;
+    opacity: 0.7;
+    color: black;
+    font-size: 16px;
+    :hover {
+      opacity: 0.8;
+    }
+  }
+`
 
 export const query = graphql`
   query($pathSlug: String!) {
@@ -52,6 +93,7 @@ export const query = graphql`
       frontmatter {
         title
         date
+        tags
       }
     }
   }

@@ -6,7 +6,7 @@ tags: ["this", "that"]
 exerpt: "A preview of my second post"
 ---
 
-laborum veniam cillum voluptate mollit irure fugiat dolore consectetur est adipisicing quis ullamco sint cillum eu laborum non elit sint qui est in qui irure non in cupidatat consequat sunt reprehenderit mollit laboris irure ea cupidatat veniam ipsum nostrud ea qui voluptate voluptate id irure Lorem esse deserunt fugiat laborum Lorem enim et adipisicing elit id sit sunt tempor do laborum aliqua fugiat dolor nulla aute deserunt aliqua adipisicing deserunt tempor
+laborum `veniam` cillum voluptate mollit irure fugiat dolore consectetur est adipisicing quis ullamco sint cillum eu laborum non elit sint qui est in qui irure non in cupidatat consequat sunt reprehenderit mollit laboris irure ea cupidatat veniam ipsum nostrud ea qui voluptate voluptate id irure Lorem esse deserunt fugiat laborum Lorem enim et adipisicing elit id sit sunt tempor do laborum aliqua fugiat dolor nulla aute deserunt aliqua adipisicing deserunt tempor
 
 ## System Requirements
 
@@ -52,6 +52,17 @@ them and see if you can find out what the problem is. You may also want to look
 at [Troubleshooting](#troubleshooting). If you can't work it out on your own
 then please [file an issue][issue] and provide _all_ the output from the
 commands you ran (even if it's a lot).
+
+> badabim badabum occaecat proident pariatur in officia est adipisicing est dolore consequat enim id reprehenderit aliquip proident reprehenderit consectetur esse aliquip cupidatat fugiat duis occaecat laboris consequat nulla id sit
+
+Here's a sentence with a footnote. [^1]
+
+term
+: definition
+
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
 
 ## Running the app
 

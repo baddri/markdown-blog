@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components/macro"
+import {Divider} from './Divider'
 
 function TitleAndDescription({ data }) {
   const title = data.site.siteMetadata.title
@@ -37,13 +38,6 @@ const Description = styled.p`
   font-family: "Libre Baskerville";
   font-style: italic;
   font-size: 1.1rem;
-`
-const Divider = styled.hr`
-  border-top: 1px solid black;
-  width: 100%;
-  margin-top: 0px;
-  opacity: 0.2;
-  margin-bottom: 3rem;
 `
 
 
