@@ -35,5 +35,8 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 ## 💫 Deploy
 push to main branch, netlify will autodeploy it
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/187f2656-0611-4fad-a387-0ef9ca2c38dd/deploy-status)](https://app.netlify.com/sites/thatshack/deploys)
+
+
 
 <!-- AUTO-GENERATED-CONTENT:END -->
