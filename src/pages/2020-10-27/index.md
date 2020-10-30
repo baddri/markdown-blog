@@ -3,19 +3,21 @@ path: "/first-post"
 date: "2020-10-27"
 title: "First Post ever"
 tags: ["this", "that"]
-exerpt: "A preview of my second post"
+exerpt: "A preview of my First post"
 ---
 
-laborum `veniam` cillum voluptate mollit irure fugiat dolore consectetur est adipisicing quis ullamco sint cillum eu laborum non elit sint qui est in qui irure non in cupidatat consequat sunt reprehenderit mollit laboris irure ea cupidatat veniam ipsum nostrud ea qui voluptate voluptate id irure Lorem esse deserunt fugiat laborum Lorem enim et adipisicing elit id sit sunt tempor do laborum aliqua fugiat dolor nulla aute deserunt aliqua adipisicing deserunt tempor
+karena blog ini bari dibuat, untuk mengisi kekosongan saya akan mencoba mengisi post pertama menggunakan markdown. beberapa hal yang akan sata coba dibawah adalah beberapa contoh markup untuk file markdown
 
-## System Requirements
+## Unordered List
 
-* [git][git] v2.14.1 or greater
-* [NodeJS][node] v8.9.4 or greater
-* [npm][npm] v5.6.0 or greater
+* pilihan pertama
+* pilihan kedua
+* pilihan ketiga
 
-All of these must be available in your `PATH`. To verify things are set up
-properly, you can run this:
+berikut adalah contoh `inline code`
+
+## contoh markup untuk kode dibawah
+menggunakan bahasa shell
 
 ```shell
 git --version
@@ -23,75 +25,62 @@ node --version
 npm --version
 ```
 
-If you have trouble with any of these, learn more about the PATH environment
-variable and how to fix it here for [windows][win-path] or
-[mac/linux][mac-path].
+berikut adalah contoh untuk javascript
 
-## Setup
+```javascript
+function createTagPages(createPage, posts) {
+  const AllTagsTemplate = path.resolve("src/container/AllTags/index.js")
+  const SingleTagTemplate = path.resolve("src/container/SingleTag/index.js")
 
-You may be able to work through the entire workshop in the browser. Go to
-[this codesandbox](https://codesandbox.io/s/github/kentcdodds/advanced-react-patterns-v2)
-and you should be good to go.
+  const postByTags = {}
 
-If you'd rather be able to work through the workshop on your own computer, then
-follow the following instructions.
+  posts.forEach(({ node }) => {
+    if (node.frontmatter.tags) {
+      node.frontmatter.tags.forEach(tag => {
+        if (!postByTags[tag]) {
+          postByTags[tag] = []
+        }
+        postByTags[tag].push(node)
+      })
+    }
+  })
 
-After you've made sure to have the correct things (and versions) installed, you
-should be able to just run a few commands to get set up:
+  const tags = Object.keys(postByTags)
 
-```shell
-git clone https://github.com/kentcdodds/advanced-react-patterns-v2.git
-cd advanced-react-patterns-v2
-npm run setup --silent
+  createPage({
+    path: "/tags",
+    component: AllTagsTemplate,
+    context: {
+      tags: tags.sort(),
+    },
+  })
+
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag}`,
+      component: SingleTagTemplate,
+      context: {
+        posts,
+        tag,
+      },
+    })
+  })
+}
 ```
 
-This may take a few minutes. **It will ask you for your email.** This is
-optional and just automatically adds your email to the links in the project to
-make filling out some forms easier If you get any errors, please read through
-them and see if you can find out what the problem is. You may also want to look
-at [Troubleshooting](#troubleshooting). If you can't work it out on your own
-then please [file an issue][issue] and provide _all_ the output from the
-commands you ran (even if it's a lot).
+oke boi sepertinya berjalan dengan baik
+contoh selanjutnya
 
-> badabim badabum occaecat proident pariatur in officia est adipisicing est dolore consequat enim id reprehenderit aliquip proident reprehenderit consectetur esse aliquip cupidatat fugiat duis occaecat laboris consequat nulla id sit
+## Blockquotes
 
-Here's a sentence with a footnote. [^1]
+>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.
 
-term
-: definition
+## Checkmark
 
 - [x] Write the press release
 - [ ] Update the website
 - [ ] Contact the media
 
-## Running the app
+## penutup
 
-To get the app up and running (and really see if it worked), run:
-
-```shell
-npm start
-```
-
-```javascript
-const path = require("path")
-
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const BlogPostTemplate = path.resolve(`src/container/BlogPost/index.js`)
-  const result = await graphql(
-    `
-      query {
-        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
-          edges {
-            node {
-              frontmatter {
-                path
-                tags
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-```
+semoga saya bisa nyaman menulis di blog ini dan bisa mengshare ilmu yang saya miliki.
