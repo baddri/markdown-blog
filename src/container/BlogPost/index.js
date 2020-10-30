@@ -4,22 +4,27 @@ import { BasePage } from "../../components/BasePage"
 import styled from "styled-components/macro"
 import dateFormat from "../../utils/dateFormat"
 import { Content } from "./Content"
+import { Helmet } from "react-helmet-async"
 
 export default function Template({ data, pageContext }) {
   const { markdownRemark } = data
-  const { title, date, tags } = markdownRemark.frontmatter
-  console.log(tags)
+  const { title, date, tags, path } = markdownRemark.frontmatter
   const { html } = markdownRemark
   const { next, prev } = pageContext
   return (
     <BasePage>
+      <Helmet>
+        <title>{title} | Hack</title>
+      </Helmet>
       <PostTitle>
-        <Link to={""}>{title}</Link>
+        <Link to={`${path}`}>{title}</Link>
       </PostTitle>
       <Date>{dateFormat(date)}</Date>
       <Content data={html} />
       <Tags>
-        <div>Tags: {tags && tags.map(tag => <Tag>{tag}</Tag>)}</div>
+        <div>
+          Tags: {tags && tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}
+        </div>
       </Tags>
       <Pagination>
         <Page style={{ marginBottom: "1rem" }}>
@@ -36,7 +41,7 @@ const PostTitle = styled.div`
     font-weight: 600;
     text-decoration: none;
     font-size: 2.5rem;
-    font-family: "Fira Sans";
+    font-family: "Sans Serif";
     color: black;
     opacity: 0.9;
   }
@@ -71,7 +76,7 @@ const Pagination = styled.div`
   align-content: space-between;
 `
 const Page = styled.div`
-  margin: 0 10px;
+  margin-right: 10px;
   margin-bottom: 7px;
   a {
     text-decoration: none;
@@ -94,6 +99,7 @@ export const query = graphql`
         title
         date
         tags
+        path
       }
     }
   }

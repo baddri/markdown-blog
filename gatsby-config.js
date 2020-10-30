@@ -23,14 +23,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: [
-            "Nunito",
-            "Open Sans",
-            "PT Mono",
-            "PT Sans",
-            "Libre Baskerville",
-            "Montserrat",
-          ],
+          families: ["Libre Baskerville", "Montserrat"],
         },
         costum: {
           families: ["Fira Sans"],

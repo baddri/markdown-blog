@@ -38,8 +38,8 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 
 function createTagPages(createPage, posts) {
-  const AllTagsTemplate = path.resolve("src/container/AllTagsIndex.js")
-  const SingleTagTemplate = path.resolve("src/container/SingleTagIndex.js")
+  const AllTagsTemplate = path.resolve("src/container/AllTags/index.js")
+  const SingleTagTemplate = path.resolve("src/container/SingleTag/index.js")
 
   const postByTags = {}
 

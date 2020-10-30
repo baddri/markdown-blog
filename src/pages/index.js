@@ -1,6 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import { BasePage } from "../components/BasePage"
+import { graphql } from "gatsby"
 import { HomePage } from "../container/HomePage"
 
 export default function Index({ data }) {

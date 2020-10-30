@@ -26,7 +26,7 @@ const Title = styled.p`
   margin-bottom: 0;
   margin-top: 2rem;
   font-size: 5rem;
-  font-family: 'Fira Sans';
+  font-family: 'Sans Serif';
   font-weight: 900;
   /* font-style: italic; */
   opacity: 0.8;

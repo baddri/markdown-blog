@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components/macro"
 
 export function Content({ data }) {
@@ -13,15 +13,15 @@ export function Content({ data }) {
     document.head.appendChild(style)
   }, [])
   return (
-    <div>
-      <Wrapper dangerouslySetInnerHTML={{ __html: data }}></Wrapper>
-    </div>
+    <Wrapper
+      className={"line-numbers"}
+      dangerouslySetInnerHTML={{ __html: data }}
+    ></Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  /* display: flex;
-  flex-direction: column; */
+  max-width: 100%;
   line-height: 1.5;
   p {
     text-align: justify;

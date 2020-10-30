@@ -1,7 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import styled from "styled-components/macro"
-import { Header } from "../../components/Header"
 import dateFormat from "../../utils/dateFormat"
 import { BasePage } from "../../components/BasePage"
 
